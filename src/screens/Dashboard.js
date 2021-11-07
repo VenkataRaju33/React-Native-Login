@@ -16,7 +16,7 @@ export default function Dashboard({ navigation }) {
     const parameters = {category: "movies",
     language: "kannada",genre: "all",
     sort: "voting" };
-    axios.get('https://reqres.in/api/articles', parameters)
+    axios.post('https://hoblist.com/movieList', parameters)
         .then(response => setData(response?.data?.data)).then(error=>{console.log(error,"error")});
   },[])
   console.log(data,"data")
@@ -47,33 +47,9 @@ Email: XXXXXX@gmail.com</Text>
   
       <Header>MOVIES</Header>
 
-{
-  data?.map(movie=>{
-
-
-    return <View style={styles.movie}>
-
-      <View style={styles.row}>
-        <Text style={styles.label}>Name:</Text><Text >{movie.name}</Text>
-      </View>
-      <View style={styles.row}>
-        <Text style={styles.label}>Year:</Text><Text >{movie.year}</Text>
-      </View>
-    </View>
-  })
-}
-      
-
-
-
-
     </Background>
   )
 }
-
-
-
-
 const styles = StyleSheet.create({
   company: {
   position:'absolute',
